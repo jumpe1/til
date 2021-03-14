@@ -1,0 +1,4 @@
+.idea
+.idea/*
+/docker/test1/mysql/
+/docker/test1/mysql/*
