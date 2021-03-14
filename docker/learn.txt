@@ -1,0 +1,62 @@
+コマンド
+    docker network ls
+        ネットワーク表示
+    docker networkrm [network name]
+        ネットワーク削除
+
+	docker-compose
+        docker-compose build --no-cache
+            ビルド
+        docker-compose build nginx
+            サービスを指定してビルド
+        docker-compose up
+            起動
+        docker-compose up -d
+            バックグラウンド起動
+        docker-compose up nginx
+            サービスを指定して起動するなら
+        docker-compose stop
+            停止
+        docker-compose restart
+            再起動
+        docker-compose exec [service name] bash
+            コンテナ内に入る
+
+コンテナ全削除
+docker ps -aq | xargs docker rm
+
+イメージを全削除する
+docker images -aq | xargs docker rmi
+
+
+docker-composeとは？
+    yaml形式の設定ファイルで複数コンテナを実行を一括で管理できるツール
+
+docker network
+    local: eth0 = docker: Virtual Ethernet bridge(veth)
+    vethがコンテナごとに作られている
+
+    docker-composeとdocker run
+        作成されるnetworkが違う
+            〇〇_defaultとdefault
+        ipのアドレスレンジが違う
+            172.17.0.2
+            192.168.16.4
+
+    networkの種類
+        bridge(default)
+            localの中のdocker bridge networkからIPが振り分けられる
+        host
+        null
+        overlay
+            複数ホストがあるときに使う
+            kubernetes
+
+docker volume
+    基本、データはコンテナ内ではなくホスト上に保存する（マウント）
+
+コンテナオーケストレーション
+    複数ホストで複数コンテナを動かす
+        docker runやcomposeだとホストが壊れたらおしまい
+    なぜ、kubernetesを使うか
+        自前で複数ホストと複数コンテナを管理するのが難しい
