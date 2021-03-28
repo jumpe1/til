@@ -7,10 +7,11 @@ except ImportError:
 setup(
     name='python_programming_demo_app',
     version='0.0.1',
-    packages=['roboter', 'roboter.models', 'roboter.controller', 'roboter.views'],
-    # You could use find_packages if setuptools is installed. 
+    packages={'roboter': ['templates/*.txt']},
+    # packages=['roboter', 'roboter.models', 'roboter.controller', 'roboter.views'],
+    # You could use find_packages if setuptools is installed.
     # packages=find_packages(),
-    package_data={ 'roboter': ['templates/*.txt'] },
+    # package_data={ 'roboter': ['templates/*.txt'] },
     url='http://sakaijunsoccer.appspot.com',
     license='MIT',
     author='jsakai',
@@ -18,4 +19,8 @@ setup(
     # You can specify install_requires if setuptools is installed
     # install_requires=['termcolor==1.1.0'],
     long_description=open('README.txt').read(),
+    test_suits='tests',
 )
+
+# python setup.py sdist
+# テストコード配布できる
