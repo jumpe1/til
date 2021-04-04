@@ -1,0 +1,79 @@
+/*属性セレクター*/
+a[href] {
+    /*color: red;*/
+}
+
+/*部分文字列一致セレクター*/
+
+/*始まる*/
+/*a[href^="jp"] {*/
+/*含む*/
+a[href*="jp"] {
+/*終わる*/
+/*a[href$="jp/"] {*/
+    color: red;
+}
+
+/*擬似クラス*/
+article p:first-of-type {
+    /*一番最初の*/
+    color: red;
+}
+
+article p:nth-of-type(1) {
+    /*article以下の何番目のpタグだけ*/
+    color: red;
+}
+
+/*:not*/
+article p:not(first-of-type) {
+    /*一番最初以外*/
+    color: red;
+}
+
+/*:hover*/
+p:not(:hover) {
+    background-color: pink;
+}
+
+/*疑似要素*/
+h1::before {
+    content: "!!!!";
+}
+
+h1::after {
+    content: "!!!!";
+}
+
+/*最初の行だけ*/
+p::first-line {
+    color: red
+}
+
+/*最初の文字だけ*/
+p::first-line {
+    color: red
+}
+
+/*子孫結合子*/
+article p {
+    color: red;
+}
+
+/*子結合子*/
+main > h1 {
+    color: red;
+}
+
+/*隣接兄弟結合子*/
+/*article p:not(:first-of-type) {*/
+article p + p {
+    /*pの次のpから（2個目のpから）*/
+    color: red;
+}
+
+/*一般兄弟結合子(あまり見ない)*/
+article h1 ~ p {
+    /*h1より後ろのpすべてに */
+    color: red;
+}
